@@ -4,7 +4,7 @@ from django.utils import timezone
 class Desocupado(models.Model):
         nombre = models.CharField(max_length=20)
         apellido = models.CharField(max_length=20)
-        dni = models.CharField(8)
+        dni = models.CharField(max_length=8)
         fechaDeNacimiento = models.CharField(max_length=20)
         experienciaLaboral = models.TextField(max_length=200)
         formacion = models.TextField(max_length=200)
