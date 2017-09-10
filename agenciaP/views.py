@@ -4,13 +4,26 @@ from django.views.generic import CreateView
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from agenciaP.forms import RegistroForm
-# Create your views here.
-class RegistroUsuario(CreateView):
-	model = User
-	template_name = "agenciaP/registrar.html"
-	form_class = RegistroForm
-	success_url = reverse_lazy('oferta:oferta_lista')
+from django.views.generic import ListView
+from .models import Desocupado
+from .models import DesocupadoForm
+from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
+def add_desocupado(request):
+    if request.method == 'POST': # si el usuario está enviando el formulario con datos
+        form = DesocupadoForm(request.POST) # Bound form
+        if form.is_valid():
+            new_persona = form.save() # Guardar los datos en la base de datos
 
-def desocupados_list(request):
-        return render(request, 'agenciaP/desocupados_list.html', {})
+            return HttpResponseRedirect(reverse('agenciaP/desocupados_list.html'))
+    else:
+        form = DesocupadoForm() # Unbound form
+
+    return render(request, 'agenciaP/registrar.html', {'form': form})
+
+class DesocupadoList(ListView):
+	model = Desocupado
+	template_name = "agenciaP/desocupados_list.html"
+

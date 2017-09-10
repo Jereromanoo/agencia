@@ -1,9 +1,11 @@
-<html>
-        <head>
-            <title>AgenciaP</title>
-        </head>
-        <body>
-            <p>Hi there!</p>
-            <p>It works!</p>
-        </body>
-    </html>
+{% extends 'agenciaP/base.html' %}
+
+{% block content %}
+<h2>Personas</h2>
+<em>Persona - DNI</em>
+<ul>
+    {% for desocupado in object_list %}
+      <li>{{ desocupado.nombre }} - {{ desocupado.dni }} </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
