@@ -15,6 +15,7 @@ class Desocupado(models.Model):
         experienciaLaboral = models.TextField(max_length=200)
         formacion = models.TextField(max_length=200)
         habilidades = models.TextField(max_length=200)
+        trabajo = models.TextField(max_length=200, blank=True)
 
 class DesocupadoForm(ModelForm):
     
