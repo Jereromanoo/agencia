@@ -1,0 +1,32 @@
+{% extends 'agenciaP/base.html' %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-2">
+    		<div class="form-group">
+    			<label for="username">Nombre de usuario:</label>
+    			<input class="form-control" type="text" name="username">
+    		</div>
+    	</div>	
+    </div>
+    <div class="row">
+    	<div class="col-md-4 col-md-offset-2">
+    		<div class="form-group">
+    			<label for="username">Contraseña</label>
+    			<input class="form-control" type="password" name="password">
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4 col-md-offset-2">
+    		<div class="form-group">
+    			<a href="#">Olvide mi contraseña</a>
+    			<input class="btn-lg btn-success" type="submit" value="Iniciar Sesion">
+    		</div>
+    	</div>
+    </div>
+	
+	</form>
+{% endblock %}
