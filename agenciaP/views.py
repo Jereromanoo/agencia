@@ -20,7 +20,7 @@ def add_desocupado(request):
         if form.is_valid():
             new_persona = form.save() # Guardar los datos en la base de datos
 
-            return HttpResponseRedirect(reverse('agenciaP/desocupados_list.html'))
+            return HttpResponseRedirect(reverse_lazy('desocupados:login'))
     else:
         form = DesocupadoForm() # Unbound form
 
