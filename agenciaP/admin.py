@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Desocupado
+from .models import Perfiles
 
-admin.site.register(Desocupado)
+admin.site.register(Perfiles)
 # Register your models here.

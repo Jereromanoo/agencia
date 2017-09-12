@@ -4,8 +4,8 @@
 <h2 style="color:white">Desocupados</h2>
 <h2 style="color:white"><em>Persona - DNI</em></h2>
 <ul>
-    {% for desocupado in object_list %}
-      <h2 style="color:white"><li>{{ desocupado.nombre }} {{ desocupado.apellido }} - {{ desocupado.dni }} </li></h2>
+    {% for perfil in object_list %}
+      <h2 style="color:white"><li>{{ perfil.nombre }} {{ perfil.apellido }} - {{ perfil.dni }} </li></h2>
     {% endfor %}
   </ul>
 {% endblock %}
