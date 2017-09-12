@@ -18,7 +18,7 @@ from .models import Perfiles
 class registrar(FormView):
     template_name = "agenciaP/registrar.html"
     form_class = UserForm
-    success_form = reverse_lazy('agenciaP/login.html') 
+    success_form = reverse_lazy('login.html') 
 
     def form_valid(self, form):
         user = form.save()
