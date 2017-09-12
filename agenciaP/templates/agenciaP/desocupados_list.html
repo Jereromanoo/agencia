@@ -1,11 +1,11 @@
 {% extends 'agenciaP/base.html' %}
 
 {% block content %}
-<h2>Desocupados</h2>
-<em>Persona - DNI</em>
+<h2 style="color:white">Desocupados</h2>
+<h2 style="color:white"><em>Persona - DNI</em></h2>
 <ul>
     {% for desocupado in object_list %}
-      <li>{{ desocupado.nombre }} {{ desocupado.apellido }} - {{ desocupado.dni }} </li>
+      <h2 style="color:white"><li>{{ desocupado.nombre }} {{ desocupado.apellido }} - {{ desocupado.dni }} </li></h2>
     {% endfor %}
   </ul>
 {% endblock %}
