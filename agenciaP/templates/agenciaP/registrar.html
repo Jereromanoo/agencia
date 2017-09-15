@@ -4,6 +4,10 @@
 {% endblock %}
 
 {% block content %}
+	<div align="rigth">
+		<h3><b><a class="btn btn-default" href="/accounts/login/"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>	
+	</div>
+	<br>
 	<form method="POST">
 		{% csrf_token %}
 	<div class="row">	
@@ -105,5 +109,6 @@
 		</div>
 	</div>	
 	</form>
+	<br>
 {% endblock %}
 		

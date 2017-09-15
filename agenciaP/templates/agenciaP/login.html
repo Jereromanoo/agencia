@@ -1,6 +1,7 @@
 {% extends 'agenciaP/base.html' %}
 {% block title %} Login {% endblock %}
 {% block content %}
+
 <form action="" method="post"> 
 	{% csrf_token %}
 	<div class="row">
@@ -19,6 +20,14 @@
     		</div>
     	</div>
     </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+                {% if form.errors %}
+                    
+                    <h3 style="color:red"><b>*Nombre de usuario y/o contraseña incorrectos.Intentelo nuevamente.</b></h3>
+                {% endif %}
+        </div>
+    </div> 
     <div class="row">
     	<div class="col-md-4 col-md-offset-2">
     		<div class="row-md-4" align="left">
