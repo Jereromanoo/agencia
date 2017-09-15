@@ -5,13 +5,15 @@
 	<title>{% block title%} {% endblock %}</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static '/css/blog.css' %}">
 </head>
-<body style="background-color:#003366 ;">
+
+<body background="/static/images/pattern.jpg" >
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href=""><img src="static/images/logo1.png" width="50" height="50" align="left"></a>
+      <a href="/accounts/login/"><img src="/static/images/logo1.png" width="50" height="50" align="left"></a>
     </div>
   </div>
 </nav>
