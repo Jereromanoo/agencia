@@ -20,7 +20,7 @@ class registrar(FormView):
     form_class = UserForm
     success_form = reverse_lazy('login') 
 
-def form_valid(self, form):
+    def form_valid(self, form):
         user = form.save()
         perfil = Perfiles()
         perfil.usuario = user
@@ -35,22 +35,11 @@ def form_valid(self, form):
         perfil.save()
         return super(registrar , self).form_valid(form)
 
-def editar(request, usuario):
-        perfil = Perfiles.objects.get(usuario=usuario)
-        if request.method == 'GET':
-            form = UserForm(instance=perfil)
-        else:
-            form = UserForm(request.POST, instance=perfil)
-            if form.is_valid():
-                form.save()
-            return redirect('desocupado:desocupados_list')
-        return render(request, 'agenciaP/desocupados_list.html' , {'form': form})
-
-
 
 class DesocupadoList(ListView):
 	model = Perfiles
 	template_name = "agenciaP/desocupados_list.html"
+
 
 
 
