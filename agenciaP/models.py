@@ -21,5 +21,10 @@ class Perfiles(models.Model):
     def __unicode__(self):
         return self.usuario.username
 
+class Trabajos(models.Model):
+	cargo = models.CharField(max_length=20)
+	descripcion = models.TextField(max_length=200)
+	horario = models.CharField(max_length=20)
+	profesion = models.CharField(max_length=20)
 
 

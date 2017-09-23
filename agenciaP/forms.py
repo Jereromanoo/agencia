@@ -16,3 +16,10 @@ class UserForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
+
+class JobForm(UserCreationForm):
+	cargo = forms.CharField()
+	descripcion = forms.CharField()
+	horario = forms.CharField()
+	profesion = forms.CharField()
+
