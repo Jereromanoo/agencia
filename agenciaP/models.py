@@ -27,4 +27,3 @@ class Trabajos(models.Model):
 	horario = models.CharField(max_length=20)
 	profesion = models.CharField(max_length=20)
 
-
