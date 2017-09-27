@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from agenciaP.forms import LoginForm, UserForm
+from agenciaP.forms import LoginForm, UserForm, JobForm
 from django.template import RequestContext
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
@@ -42,18 +42,18 @@ class DesocupadoList(ListView):
 
 class registrartrabajo(FormView):
     template_name = "agenciaP/registrartrabajo.html"
-    form_class = UserForm
+    form_class = JobForm
     success_form = reverse_lazy('login') 
 
     def form_valid(self, form):
         user = form.save()
-        trabajo = trabajo()
-        trabajo.cargo = orm.cleaned_data['cargo']
+        trabajo = Trabajos()
+        trabajo.cargo = form.cleaned_data['cargo']
         trabajo.descripcion = form.cleaned_data['descripcion']
         trabajo.horario = form.cleaned_data['horario']
         trabajo.profesion = form.cleaned_data['profesion']
         trabajo.save()
-        return super(registrar , self).form_valid(form)
+        return super(registrartrabajo , self).form_valid(form)
 
 
 
