@@ -53,6 +53,7 @@ class TrabajoList(ListView):
 	model = Trabajos
 	template_name = "agenciaP/trabajos_list.html"
 
-
-
+#def eliminarDesocupado(request, object_id):
+#    object = get_object_or_404(Perfiles, pk=object_id)
+#    object.delete()
 

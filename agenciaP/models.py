@@ -26,4 +26,6 @@ class Trabajos(models.Model):
 	descripcion = models.TextField(max_length=200)
 	horario = models.CharField(max_length=20)
 	profesion = models.CharField(max_length=20)
-
+	
+	def __unicode__(self):
+		return self.cargo
