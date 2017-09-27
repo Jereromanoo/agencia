@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
         url(r'^desocupados', login_required(views.DesocupadoList.as_view()), name='desocupados'),
+        url(r'^trabajos', login_required(views.TrabajoList.as_view()), name='trabajos'),
         url(r'^registrar/$', registrar.as_view(), name='registrarse'),
         url(r'^registrartrabajo/$', trabajos_view, name='registrartrabajo'),
         url(r'^$', login, {'template_name': 'agenciaP/login.html'}, name='home'),

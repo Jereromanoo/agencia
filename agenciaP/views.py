@@ -49,7 +49,9 @@ def trabajos_view(request):
         form =JobForm()
     return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
 
-
+class TrabajoList(ListView):
+	model = Trabajos
+	template_name = "agenciaP/trabajos_list.html"
 
 
 
