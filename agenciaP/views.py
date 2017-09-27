@@ -2,14 +2,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView, TemplateView, FormView
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from agenciaP.forms import LoginForm, UserForm, JobForm
 from django.template import RequestContext
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .models import Perfiles, Trabajos  
 
@@ -40,20 +38,18 @@ class DesocupadoList(ListView):
 	model = Perfiles
 	template_name = "agenciaP/desocupados_list.html"
 
-class registrartrabajo(FormView):
-    template_name = "agenciaP/registrartrabajo.html"
-    form_class = JobForm
-    success_form = reverse_lazy('login') 
 
-    def form_valid(self, form):
-        user = form.save()
-        trabajo = Trabajos()
-        trabajo.cargo = form.cleaned_data['cargo']
-        trabajo.descripcion = form.cleaned_data['descripcion']
-        trabajo.horario = form.cleaned_data['horario']
-        trabajo.profesion = form.cleaned_data['profesion']
-        trabajo.save()
-        return super(registrartrabajo , self).form_valid(form)
+def trabajos_view(request):
+    if request.method == 'POST':
+        form = JobForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('desocupados')
+    else:
+        form =JobForm()
+    return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
+
+
 
 
 

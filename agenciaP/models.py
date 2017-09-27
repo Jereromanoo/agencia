@@ -12,7 +12,7 @@ class Perfiles(models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20)
     dni = models.CharField(max_length=8)
-    fechaDeNacimiento = models.CharField(max_length=20)
+    fechaDeNacimiento = models.DateField(max_length=20)
     experienciaLaboral = models.TextField(max_length=200)
     formacion = models.TextField(max_length=200)
     habilidades = models.TextField(max_length=200)
