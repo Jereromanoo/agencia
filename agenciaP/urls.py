@@ -11,6 +11,7 @@ urlpatterns = [
         url(r'^registrar/$', registrar.as_view(), name='registrarse'),
         url(r'^registrartrabajo/$', trabajos_view, name='registrartrabajo'),
         url(r'^$', login, {'template_name': 'agenciaP/login.html'}, name='home'),
-    	url(r'^accounts/login/', login, {'template_name': 'agenciaP/login.html'}, name='login'),
-    	url(r'^logout/', logout_then_login, name='logout'),
+    	  url(r'^accounts/login/', login, {'template_name': 'agenciaP/login.html'}, name='login'),
+    	  url(r'^logout/', logout_then_login, name='logout'),
+        url(r'^redireccion/$', login, {'template_name': 'agenciaP/redireccion.html'}, name='redireccion'),	
     ]
