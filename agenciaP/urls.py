@@ -13,4 +13,5 @@ urlpatterns = [
         url(r'^$', login, {'template_name': 'agenciaP/login.html'}, name='home'),
     	url(r'^accounts/login/', login, {'template_name': 'agenciaP/login.html'}, name='login'),
     	url(r'^logout/', logout_then_login, name='logout'),
+		url(r'^registrarempresa/$', empresa.as_view(), name='registrarempresa'),
     ]

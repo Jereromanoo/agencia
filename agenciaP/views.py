@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from agenciaP.forms import LoginForm, UserForm, JobForm
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
-from .models import Perfiles, Trabajos  
+from .models import Perfiles, Trabajos, Empresa  
 
 
 
@@ -33,6 +33,25 @@ class registrar(FormView):
         perfil.save()
         return super(registrar , self).form_valid(form)
 
+class registrarempresa(FormView):
+    template_name = "agenciaP/regEmpresa.html"
+    form_class = UserForm
+    success_form = reverse_lazy('login') 
+
+    def form_valid(self, form):
+        user = form.save()
+        perfil = Perfiles()
+        perfil.empresa= user
+        perfil.nombre = form.cleaned_data['nombre']
+        perfil.cuit = form.cleaned_data['cuit']
+        perfil.razonSocial = form.cleaned_data['razonSocial']
+        perfil.descripcion = form.cleaned_data['descripcion']
+        perfil.rubro = form.cleaned_data['rubro']
+        perfil.logo = form.ImageField['logo']
+   
+        perfil.save()
+        return super(registrar , self).form_valid(form)
+
 
 class DesocupadoList(ListView):
 	model = Perfiles
@@ -52,6 +71,8 @@ def trabajos_view(request):
 class TrabajoList(ListView):
 	model = Trabajos
 	template_name = "agenciaP/trabajos_list.html"
+
+
 
 #def eliminarDesocupado(request, object_id):
 #    object = get_object_or_404(Perfiles, pk=object_id)

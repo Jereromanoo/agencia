@@ -14,6 +14,14 @@ class UserForm(UserCreationForm):
 	habilidades = forms.CharField()
 	trabajo = forms.CharField()
 
+class EmpresaForm(UserCreationForm):
+	nombre = forms.CharField()
+	cuit = forms.CharField()
+	razonSocial = forms.CharField()
+	descripcion = forms.CharField()
+	logo = forms.ImageField()
+	rubro = forms.CharField()
+
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())

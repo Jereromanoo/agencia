@@ -29,3 +29,11 @@ class Trabajos(models.Model):
 	
 	def __unicode__(self):
 		return self.cargo
+
+class Empresa(models.Model):
+	nombre = models.CharField(max_length=20)
+	cuit = models.CharField(max_length=11)
+	razonSocial = models.CharField(max_length=20)
+	descripcion = models.CharField(max_length=25)
+	logo = models.ImageField(upload_to='static/images'
+	rubro = models.CharField(max_length=20)
