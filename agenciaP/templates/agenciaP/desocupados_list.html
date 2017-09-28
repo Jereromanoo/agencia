@@ -4,7 +4,11 @@
 <h2 style="color:white"><em>Persona - DNI</em></h2>
 <ul>
     {% for perfil in object_list %}
-      <h2 style="color:white"><li>{{ perfil.nombre }} {{ perfil.apellido }} - {{ perfil.dni }} </li></h2>
+      <h2 style="color:white"><li>{{ perfil.nombre }} {{ perfil.apellido }} - {{ perfil.dni }} 
+	<a href="#" class="btn btn-warning">editar</button> </a>
+	<a href="#" class="btn btn-danger">eliminar</button> </a>
+</li></h2>
+
     {% endfor %}
   </ul>
   <a href="/logout">Salir</a>

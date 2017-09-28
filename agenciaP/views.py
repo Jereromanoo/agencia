@@ -44,7 +44,7 @@ def trabajos_view(request):
         form = JobForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('desocupados')
+        return redirect('trabajos', request=request)
     else:
         form =JobForm()
     return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
