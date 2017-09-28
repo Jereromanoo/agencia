@@ -1,7 +1,9 @@
 {% extends 'agenciaP/base.html' %}
 {% block content %}
+
 <h2 style="color:white">Laburos</h2>
 <h2 style="color:white"><em>Persona - DNI</em></h2>
+
 <ul>
     {% for trabajo in object_list %}
       <h2 style="color:white"><li>{{ trabajo.cargo }} {{ trabajo.descripcion }} - {{ trabajo.horario }} 
@@ -10,5 +12,5 @@
 
     {% endfor %}
   </ul>
-  <a href="/logout" class="btn btn-default">Salir</a>
+  <a href="/logout" class="btn btn-defaultº">Salir</a>
 {% endblock %}
