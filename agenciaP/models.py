@@ -35,5 +35,5 @@ class Empresa(models.Model):
 	cuit = models.CharField(max_length=11)
 	razonSocial = models.CharField(max_length=20)
 	descripcion = models.CharField(max_length=25)
-	logo = models.ImageField(upload_to='static/images'
+	logo = models.ImageField(upload_to='static/images')
 	rubro = models.CharField(max_length=20)
