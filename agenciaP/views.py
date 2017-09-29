@@ -33,10 +33,22 @@ class registrar(FormView):
         perfil.save()
         return super(registrar , self).form_valid(form)
 
+
+def editar(request, user):
+    desocupado = Perfiles.objects.get(usuario=user)
+    if request.method == 'GET':
+        form = UserForm(instance=desocupado)
+    else:
+        form = UserForm(request.POST, instance=desocupado)
+        if form.is_valid:
+            form.save()
+        return redirect('redireccion')
+    return render(request, 'agenciaP/registrar.html', {'form':form})
+
 class registrarempresa(FormView):
     template_name = "agenciaP/regEmpresa.html"
     form_class = UserForm
-    success_url = reverse_lazy('agenciaP:home') 
+    success_url = reverse_lazy('home') 
 
     def form_valid(self, form):
         user = form.save()
