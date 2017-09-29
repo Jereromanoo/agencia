@@ -103,5 +103,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = reverse_lazy('desocupados:desocupados')
+LOGIN_REDIRECT_URL = reverse_lazy('agenciaP:redireccion')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
