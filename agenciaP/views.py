@@ -62,7 +62,7 @@ def trabajos_view(request):
         form = JobForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('trabajos', request=request)
+        return redirect('redireccion', request=request)
     else:
         form =JobForm()
     return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
