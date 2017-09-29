@@ -36,7 +36,7 @@ class registrar(FormView):
 class registrarempresa(FormView):
     template_name = "agenciaP/regEmpresa.html"
     form_class = UserForm
-    success_url = reverse_lazy('login') 
+    success_url = reverse_lazy('agenciaP:home') 
 
     def form_valid(self, form):
         user = form.save()
@@ -47,7 +47,7 @@ class registrarempresa(FormView):
         perfil.razonSocial = form.cleaned_data['razonSocial']
         perfil.descripcion = form.cleaned_data['descripcion']
         perfil.rubro = form.cleaned_data['rubro']
-        """perfil.logo = form.ImageField['logo']  """
+        perfil.logo = form.ImageField['logo'] 
         perfil.save()
         return super(registrarempresa , self).form_valid(form)
 
