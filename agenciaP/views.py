@@ -16,7 +16,7 @@ from .models import Perfiles, Trabajos, Empresa
 class registrar(FormView):
     template_name = "agenciaP/registrar.html"
     form_class = UserForm
-    success_form = reverse_lazy('login') 
+    success_url = reverse_lazy('login') 
 
     def form_valid(self, form):
         user = form.save()
@@ -36,21 +36,20 @@ class registrar(FormView):
 class registrarempresa(FormView):
     template_name = "agenciaP/regEmpresa.html"
     form_class = UserForm
-    success_form = reverse_lazy('login') 
+    success_url = reverse_lazy('login') 
 
     def form_valid(self, form):
         user = form.save()
-        perfil = Perfiles()
+        perfil = Empresa()
         perfil.empresa= user
         perfil.nombre = form.cleaned_data['nombre']
         perfil.cuit = form.cleaned_data['cuit']
         perfil.razonSocial = form.cleaned_data['razonSocial']
         perfil.descripcion = form.cleaned_data['descripcion']
         perfil.rubro = form.cleaned_data['rubro']
-        perfil.logo = form.ImageField['logo']
-   
+        """perfil.logo = form.ImageField['logo']  """
         perfil.save()
-        return super(registrar , self).form_valid(form)
+        return super(registrarempresa , self).form_valid(form)
 
 
 class DesocupadoList(ListView):

@@ -1,6 +1,6 @@
 {% extends 'agenciaP/base.html' %}
 {% block content %}
-  <a href="redireccion" class="btn btn-default">volver</a>
+  <a href="/redireccion/" class="btn btn-default"><span class="glyphicon glyphicon-home">HOME</span></a>
 <h2 style="color:white">Desocupados</h2>
 <h2 style="color:white"><em>Persona - DNI</em></h2>
 <ul>
@@ -12,5 +12,5 @@
 
     {% endfor %}
   </ul>
-  <a href="/logout" class="btn btn-default">Salir</a>
+<a href="/logout" class="btn btn-default"><span class="glyphicon glyphicon-log-out"> Salir</span></a>
 {% endblock %}

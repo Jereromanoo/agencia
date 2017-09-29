@@ -37,3 +37,6 @@ class Empresa(models.Model):
 	descripcion = models.CharField(max_length=25)
 	logo = models.ImageField(upload_to='static/images')
 	rubro = models.CharField(max_length=20)
+
+	def __unicode__(self):
+		return self.nombre
