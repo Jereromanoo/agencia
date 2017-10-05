@@ -20,7 +20,8 @@
         {% endif %}
       </p>
     {% endfor %}
-    <button class="btn-success" type="submit">Log in</button>
-    <a href="{{ url('registrar.desocupado') }}">Nuevo en el sitio? Registrarme</a>
+    <button class="btn-success btn-lg" type="submit">Log in</button>
+    <a class="btn-info btn-lg" href="{{ url('registrar.desocupado') }}">Registrarme como Desocupado</a>
+    <a class="btn-info btn-lg" href="{{ url('registrar.empresa') }}">Registrar mi Empresa</a>
   </form>
 {% endblock %}
