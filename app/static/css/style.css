@@ -55,6 +55,7 @@ p {
     font-size: 11px !important;
     letter-spacing: 4px;
     opacity:0.9;
+    min-height: 100px;
 }
 
 /* Add a gray color to all navbar links */
@@ -101,4 +102,26 @@ p {
 
 .w3-panel{
     margin-bottom: 0px;
+}
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 }

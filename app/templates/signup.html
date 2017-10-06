@@ -25,11 +25,8 @@
     {{ csrf_input }}
     {% for field in form %}
       <p>
-<<<<<<< HEAD
         {{ field.label_tag() }}<br>
-=======
         <span class="form-label">{{ field.label_tag() }}</span><br>
->>>>>>> efe62c2c8975a58c872cc92d1762b0a7c4516c99
         {{ field }}<br>
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>

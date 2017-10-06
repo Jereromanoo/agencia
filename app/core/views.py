@@ -1,12 +1,8 @@
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-
-<<<<<<< HEAD
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
-=======
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
->>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 from django.contrib.auth.models import User
 from app.core.models import *
 
@@ -109,11 +105,6 @@ def registro_trabajo(request):
         return redirect('home')
     else:
         form =JobForm()
-<<<<<<< HEAD
-    return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
-
-
-=======
     return render(request, 'jobs.html', {'form':form})
 """
 def editar(request, user):

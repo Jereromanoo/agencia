@@ -9,18 +9,18 @@
     <link rel='stylesheet' href="{{ static('css/style.css') }}">
   </head>
  <body background="/static/images/pattern.jpg" >
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-right">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: -10px;height: 40px;"><img src="/static/images/logo1.png" width="40" height="40" align="left"></a>
+          <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: -10px;height: 40px;"><img src="/static/images/logo1.png" width="80" height="80" align="left"></a>
         </div>
-        <div style="padding-left: 31cm " >
-         {% if user.is_authenticated() %}
-        <a class="btn btn-default" href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"> LOGOUT</span></a>
-        </div>
-      {% endif %}
-      </div>
-    </nav>   
+          {% if user.is_authenticated() %}
+           <div class="nav navbar-nav navbar-right">
+                 <a class="btn btn-default" href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"><strong>LOGOUT</strong></span></a>  
+          </div>
+          {% endif %}
+      </div>    
+    </nav>     
     <div class="main">
       {% block content %}
       {% endblock %}
