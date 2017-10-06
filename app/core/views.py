@@ -2,7 +2,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+<<<<<<< HEAD
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
+=======
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
+>>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 from django.contrib.auth.models import User
 from app.core.models import *
 
@@ -69,6 +73,21 @@ def handle_registro_empresa_form(request):
 def eliminar(request, user_id):
 	User.objects.get(id=user_id).delete()
 	return render(request, 'test.html', {'id': user_id})
+
+
+def editar(request, user_id):
+    user = User.objects.get(id=user_id)
+    if request.method == 'GET':
+        print(user.desocupado.nombre)
+        form = Modificar(instance=user.desocupado)
+    else:
+        form = Modificar(request.POST, instance=user.desocupado)
+        if form.is_valid:
+            form.save()
+        return redirect('login')
+    return render(request, 'signup.html', {'form':form})
+
+
 # Estas son las que ya estaban, las comento porque con el cambio alguna cosa
 # podría tener que cambiarse o adaptarse. Notece ademas el uso de login_required
 # en el views en lugar de urls, los decorators de hecho son esas cosas que
@@ -90,6 +109,11 @@ def registro_trabajo(request):
         return redirect('home')
     else:
         form =JobForm()
+<<<<<<< HEAD
+    return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
+
+
+=======
     return render(request, 'jobs.html', {'form':form})
 """
 def editar(request, user):
@@ -102,4 +126,5 @@ def editar(request, user):
             form.save()
         return redirect('redireccion')
     return render(request, 'agenciaP/registrar.html', {'form':form})
+>>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 """
