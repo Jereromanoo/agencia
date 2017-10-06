@@ -3,6 +3,10 @@ h1 a label{0/admin/logout/
         font-family: 'Lobster';
     }
 
+p {
+    color: white;
+
+}
 
 .container {
     padding: 80px 120px;

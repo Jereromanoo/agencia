@@ -14,12 +14,9 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: -10px;height: 40px;"><img src="/static/images/logo1.png" width="40" height="40" align="left"></a>
         </div>
-        <div style="padding-left: 33cm">
+        <div style="padding-left: 31cm " >
          {% if user.is_authenticated() %}
-        <a class="btn btn-default" href="{{ url('logout') }}">
-          Logout
-<span class="glyphicons glyphicons-log-out"></span>
-        </a>
+        <a class="btn btn-default" href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"> LOGOUT</span></a>
         </div>
       {% endif %}
       </div>

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div align="rigth">
-        <h3><b><a class="btn btn-default" href="{{ url('logout') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
+        <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
 </div>
 <h1 style="color: white">Formulario de registro</h1>
 
@@ -24,7 +24,7 @@
 <form method="POST" class="post-form">
     {{ csrf_input }}
     {% for field in form %}
-      <p style="color: white">
+      <p>
         {{ field.label_tag() }}<br>
         {{ field }}<br>
         {% for error in field.errors %}
