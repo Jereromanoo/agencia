@@ -25,7 +25,13 @@ urlpatterns = [
     url(r'^registrar/empresa$', core_views.registro_empresa, name='registrar.empresa'),
     # Otras que tenian creadas
 	 url(r'^eliminar/(?P<user_id>\d+)/$', core_views.eliminar, name="eliminar"),
+<<<<<<< HEAD
      url(r'^editar/(?P<user_id>\d+)/$', core_views.editar, name='editar'),
+=======
+    url(r'^registrar/trabajo$', core_views.registro_trabajo, name='registrar.trabajo')
+    # Otras
+    #url(r'^editar/(?P<user>\d+)/$', core_views.editar, name='editar'),
+>>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
     #url(r'^desocupados', core_views.desocupados_list, name='desocupados'),
     #url(r'^trabajos', core_views.trabajos_list, name='trabajos'),
 ]

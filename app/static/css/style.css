@@ -1,4 +1,4 @@
-h1 a label{
+h1 a label{0/admin/logout/
         color: #ffffff;
         font-family: 'Lobster';
     }
@@ -8,7 +8,9 @@ h1 a label{
     padding: 80px 120px;
 } 
 
-
+.main{
+    padding: 30px;  
+}
 
 .person {
     border: 10px solid transparent;

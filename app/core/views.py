@@ -2,7 +2,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+<<<<<<< HEAD
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
+=======
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
+>>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 from django.contrib.auth.models import User
 from app.core.models import *
 
@@ -96,16 +100,31 @@ def desocupados_list(request):
 @login_required
 def trabajos_list(request):
     return render(request, "agenciaP/trabajos_list.html")
-
-def trabajos_view(request):
+"""
+def registro_trabajo(request):
     if request.method == 'POST':
         form = JobForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('redireccion', request=request)
+        return redirect('home')
     else:
         form =JobForm()
+<<<<<<< HEAD
     return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
 
 
+=======
+    return render(request, 'jobs.html', {'form':form})
+"""
+def editar(request, user):
+    desocupado = Perfiles.objects.get(usuario=user)
+    if request.method == 'GET':
+        form = UserForm(instance=desocupado)
+    else:
+        form = UserForm(request.POST, instance=desocupado)
+        if form.is_valid:
+            form.save()
+        return redirect('redireccion')
+    return render(request, 'agenciaP/registrar.html', {'form':form})
+>>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 """

@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
 
 {% block content %}
   <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
@@ -11,4 +11,5 @@
     <p>DNI: {{ user.profile().dni }}</p>
   {% endif %}
 	<a href="{{ url('eliminar', user.id) }}">Eliminar</a>
+  
 {% endblock %}
