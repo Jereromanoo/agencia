@@ -2,7 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from app.core.forms import RegistroDesocupado, RegistroEmpresa
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
 from django.contrib.auth.models import User
 from app.core.models import *
 
@@ -81,17 +81,17 @@ def desocupados_list(request):
 @login_required
 def trabajos_list(request):
     return render(request, "agenciaP/trabajos_list.html")
-
-def trabajos_view(request):
+"""
+def registro_trabajo(request):
     if request.method == 'POST':
         form = JobForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('redireccion', request=request)
+        return redirect('home')
     else:
         form =JobForm()
-    return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
-
+    return render(request, 'jobs.html', {'form':form})
+"""
 def editar(request, user):
     desocupado = Perfiles.objects.get(usuario=user)
     if request.method == 'GET':

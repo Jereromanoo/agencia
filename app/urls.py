@@ -24,7 +24,9 @@ urlpatterns = [
     url(r'^registrar/desocupado$', core_views.registro_desocupado, name='registrar.desocupado'),
     url(r'^registrar/empresa$', core_views.registro_empresa, name='registrar.empresa'),
     # Otras que tenian creadas
-	 url(r'^eliminar/(?P<user_id>\d+)/$', core_views.eliminar, name="eliminar")
+	 url(r'^eliminar/(?P<user_id>\d+)/$', core_views.eliminar, name="eliminar"),
+    url(r'^registrar/trabajo$', core_views.registro_trabajo, name='registrar.trabajo')
+    # Otras
     #url(r'^editar/(?P<user>\d+)/$', core_views.editar, name='editar'),
     #url(r'^desocupados', core_views.desocupados_list, name='desocupados'),
     #url(r'^trabajos', core_views.trabajos_list, name='trabajos'),
