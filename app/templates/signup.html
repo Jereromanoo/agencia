@@ -15,7 +15,7 @@
             </div>
         {% endfor %}
     {% endfor %}
-    {% for error in form.non_field_errors %}
+    {% for error in form.non_field_errors() %}
         <div class="alert alert-danger">
             <strong>{{ error|escape }}</strong>
         </div>
@@ -25,8 +25,8 @@
 <form method="POST" class="post-form">
     {{ csrf_input }}
     {% for field in form %}
-      <p style="color: white">
-        {{ field.label_tag() }}<br>
+      <p>
+        <span class="form-label">{{ field.label_tag() }}</span><br>
         {{ field }}<br>
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>

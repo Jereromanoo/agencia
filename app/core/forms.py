@@ -91,3 +91,10 @@ class JobForm(forms.ModelForm):
 			'profesion': forms.TextInput(attrs={'class':'form-control'}),
 		}
 
+class Modificar(forms.ModelForm):
+    class Meta:
+        model = Desocupado
+        fields = ['nombre']
+        labels = {'nombre':'Nombre'}
+        widgets = {'nombre': forms.TextInput(attrs={'class':'form-contrl'}),}
+

@@ -2,7 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from app.core.forms import RegistroDesocupado, RegistroEmpresa
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
 from django.contrib.auth.models import User
 from app.core.models import *
 
@@ -69,6 +69,21 @@ def handle_registro_empresa_form(request):
 def eliminar(request, user_id):
 	User.objects.get(id=user_id).delete()
 	return render(request, 'test.html', {'id': user_id})
+
+
+def editar(request, user_id):
+    user = User.objects.get(id=user_id)
+    if request.method == 'GET':
+        print(user.desocupado.nombre)
+        form = Modificar(instance=user.desocupado)
+    else:
+        form = Modificar(request.POST, instance=user.desocupado)
+        if form.is_valid:
+            form.save()
+        return redirect('login')
+    return render(request, 'signup.html', {'form':form})
+
+
 # Estas son las que ya estaban, las comento porque con el cambio alguna cosa
 # podría tener que cambiarse o adaptarse. Notece ademas el uso de login_required
 # en el views en lugar de urls, los decorators de hecho son esas cosas que
@@ -92,14 +107,5 @@ def trabajos_view(request):
         form =JobForm()
     return render(request, 'agenciaP/registrartrabajo.html', {'form':form})
 
-def editar(request, user):
-    desocupado = Perfiles.objects.get(usuario=user)
-    if request.method == 'GET':
-        form = UserForm(instance=desocupado)
-    else:
-        form = UserForm(request.POST, instance=desocupado)
-        if form.is_valid:
-            form.save()
-        return redirect('redireccion')
-    return render(request, 'agenciaP/registrar.html', {'form':form})
+
 """

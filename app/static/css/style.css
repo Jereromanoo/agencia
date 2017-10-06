@@ -73,6 +73,10 @@ h1 a label{
     border-color: transparent;
 }
 
+.form-label {
+    color: black;
+}
+
 /* Dropdown */
 .open .dropdown-toggle {
     color: #fff ;
