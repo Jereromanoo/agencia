@@ -117,5 +117,4 @@ def editar(request, user):
             form.save()
         return redirect('redireccion')
     return render(request, 'agenciaP/registrar.html', {'form':form})
->>>>>>> 5784f36e9bba4e3dfb3a96f98f2f1cc612765b1c
 """

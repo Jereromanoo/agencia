@@ -26,7 +26,6 @@
     {% for field in form %}
       <p>
         {{ field.label_tag() }}<br>
-        <span class="form-label">{{ field.label_tag() }}</span><br>
         {{ field }}<br>
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>

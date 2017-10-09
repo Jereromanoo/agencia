@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
+  <h2><p>Welcome, {{ user.get_full_name() }}!</p></h2>
   <p>Sos un: {{ user.profile_type() }}</p>
   <p>Algunos datos relevantes son:</p>
   {% if user.is_empresa() %}
@@ -14,5 +14,5 @@
   {% if user.is_empresa() %}
   <a class="btn btn-success" href="{{ url('registrar.trabajo') }}">Registrar Trabajo</a>
   {% endif %}
-  
+
 {% endblock %}
