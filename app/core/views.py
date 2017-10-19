@@ -1,4 +1,4 @@
-
+from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
@@ -84,6 +84,10 @@ def editar(request, user_id):
     return render(request, 'signup.html', {'form':form})
 
 
+
+
+
+
 # Estas son las que ya estaban, las comento porque con el cambio alguna cosa
 # podría tener que cambiarse o adaptarse. Notece ademas el uso de login_required
 # en el views en lugar de urls, los decorators de hecho son esas cosas que
@@ -106,6 +110,8 @@ def registro_trabajo(request):
     else:
         form =JobForm()
     return render(request, 'jobs.html', {'form':form})
+
+
 """
 def editar(request, user):
     desocupado = Perfiles.objects.get(usuario=user)
@@ -117,4 +123,9 @@ def editar(request, user):
             form.save()
         return redirect('redireccion')
     return render(request, 'agenciaP/registrar.html', {'form':form})
+
+def trabajo_List(ListView):
+	model = Trabajo
+	template_name = "trabajos_list.html"
+
 """
