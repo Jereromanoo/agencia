@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-{% for trabajo in object_list %}
-      <h2 style="color:white"><li>{{ trabajo.cargo }} {{ trabajo.descripcion }} - {{ trabajo.horario }}
-
+<p>CACA
+	{% for trabajo in object_list %}
+      <h2 style="color:white"><label>CARGO:</label>{{ trabajo.cargo }}
+      <label>DESCRIPCION:</label> {{ trabajo.descripcion }} 
+      <label>HORARIO:</label> {{ trabajo.horario }}
+    {% endfor %}
 {% endblock %}

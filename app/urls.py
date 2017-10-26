@@ -27,6 +27,7 @@ urlpatterns = [
 	url(r'^eliminar/(?P<user_id>\d+)/$', core_views.eliminar, name="eliminar"),
     url(r'^editar/(?P<user_id>\d+)/$', core_views.editar, name='editar'),
     url(r'^registrar/trabajo$', core_views.registro_trabajo, name='registrar.trabajo'),
+    url(r'^ofertas/$', core_views.trabajos_list.as_view(), name='trabajos'),
     # Otras
     #url(r'^editar/(?P<user>\d+)/$', core_views.editar, name='editar'),
     #url(r'^desocupados', core_views.desocupados_list, name='desocupados'),

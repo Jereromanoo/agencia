@@ -96,11 +96,13 @@ def editar(request, user_id):
 @login_required
 def desocupados_list(request):
     return render(request, "agenciaP/desocupados_list.html")
-
-@login_required
-def trabajos_list(request):
-    return render(request, "agenciaP/trabajos_list.html")
 """
+
+"""
+def trabajos_list(request):
+    return render(request, "trabajo_list.html")
+"""
+@login_required
 def registro_trabajo(request):
     if request.method == 'POST':
         form = JobForm(request.POST)
@@ -111,6 +113,9 @@ def registro_trabajo(request):
         form =JobForm()
     return render(request, 'jobs.html', {'form':form})
 
+class trabajos_list(ListView):
+    model = Trabajo
+    template_name = "trabajo_list.html"
 
 """
 def editar(request, user):
@@ -127,5 +132,5 @@ def editar(request, user):
 def trabajo_List(ListView):
 	model = Trabajo
 	template_name = "trabajos_list.html"
-
 """
+
