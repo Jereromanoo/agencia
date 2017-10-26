@@ -9,7 +9,7 @@
     {{ csrf_input }}
     <input type="hidden" name="next" value="{{ next }}" />
     {% for field in form %}
-      <p style="color:black">
+      <p style="color:white">
         {{ field.label_tag() }}<br>
         {{ field }}<br>
         {% for error in field.errors %}
