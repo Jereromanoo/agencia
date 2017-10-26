@@ -76,9 +76,12 @@ def editar(request):
     if user.is_desocupado():
         form = ModificarDesocupado
         data = user.desocupado
-    else:
+    elif user.is_Empresa():
         form = ModificarEmpresa
         data = user.empresa
+    else:
+        form = ModificarTrabajo
+        data = user.trabajo
 
     if request.method == "GET":
         return get_editar_form(request, form, data)

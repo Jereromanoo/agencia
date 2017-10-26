@@ -101,4 +101,8 @@ class ModificarEmpresa(forms.ModelForm):
         model = Empresa
         fields = ['cuit', 'rubro', 'razon_social']
 
+class ModificarTrabajo(forms.ModelForm):
+    class Meta:
+        model = Trabajo
+        fields = ['cargo', 'descripcion', 'horario', 'profesion']
 
