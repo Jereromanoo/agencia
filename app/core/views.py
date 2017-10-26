@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from app.core.forms import RegistroDesocupado, RegistroEmpresa, Modificar
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, ModificarEmpresa, ModificarDesocupado
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
 from django.contrib.auth.models import User
 from app.core.models import *
@@ -70,17 +70,30 @@ def eliminar(request, user_id):
 	User.objects.get(id=user_id).delete()
 	return render(request, 'test.html', {'id': user_id})
 
-
-def editar(request, user_id):
-    user = User.objects.get(id=user_id)
-    if request.method == 'GET':
-        print(user.desocupado.nombre)
-        form = Modificar(instance=user.desocupado)
+@login_required
+def editar(request):
+    user = User.objects.get(id=request.user.id)
+    if user.is_desocupado():
+        form = ModificarDesocupado
+        data = user.desocupado
     else:
-        form = Modificar(request.POST, instance=user.desocupado)
-        if form.is_valid:
-            form.save()
-        return redirect('login')
+        form = ModificarEmpresa
+        data = user.empresa
+
+    if request.method == "GET":
+        return get_editar_form(request, form, data)
+    elif request.method == 'POST':
+        return handle_editar_form(request, form,data)
+
+def get_editar_form(request,formName, data):
+    form = formName(instance=data)
+    return render(request, 'signup.html', {'form':form})
+
+def handle_editar_form(request,formName, data):
+    form = formName(request.POST, instance=data)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
     return render(request, 'signup.html', {'form':form})
 
 
