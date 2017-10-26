@@ -45,7 +45,6 @@ class RegistroEmpresa(UserCreationForm):
     cuit = forms.CharField(max_length=10)
     razon_social = forms.CharField()
     rubro = forms.CharField()
-
     class Meta:
         model = User
         # Le pega a user, porq queremos que guarde el usuario,
@@ -90,7 +89,7 @@ class JobForm(forms.ModelForm):
 			'horario': forms.TextInput(attrs={'class':'form-control'}),
 			'profesion': forms.TextInput(attrs={'class':'form-control'}),
 		}
-
+    
 class ModificarDesocupado(forms.ModelForm):
     class Meta:
         model = Desocupado

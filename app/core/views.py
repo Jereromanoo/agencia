@@ -99,25 +99,11 @@ def handle_editar_form(request,formName, data):
         return redirect('home')
     return render(request, 'signup.html', {'form':form})
 
-
-
-
-
-
 # Estas son las que ya estaban, las comento porque con el cambio alguna cosa
 # podría tener que cambiarse o adaptarse. Notece ademas el uso de login_required
 # en el views en lugar de urls, los decorators de hecho son esas cosas que
 # comienzan con @ y van arriba de la función
-"""
-@login_required
-def desocupados_list(request):
-    return render(request, "agenciaP/desocupados_list.html")
-"""
 
-"""
-def trabajos_list(request):
-    return render(request, "trabajo_list.html")
-"""
 @login_required
 def registro_trabajo(request):
     if request.method == 'POST':
@@ -133,20 +119,4 @@ class trabajos_list(ListView):
     model = Trabajo
     template_name = "trabajo_list.html"
 
-"""
-def editar(request, user):
-    desocupado = Perfiles.objects.get(usuario=user)
-    if request.method == 'GET':
-        form = UserForm(instance=desocupado)
-    else:
-        form = UserForm(request.POST, instance=desocupado)
-        if form.is_valid:
-            form.save()
-        return redirect('redireccion')
-    return render(request, 'agenciaP/registrar.html', {'form':form})
-
-def trabajo_List(ListView):
-	model = Trabajo
-	template_name = "trabajos_list.html"
-"""
 
