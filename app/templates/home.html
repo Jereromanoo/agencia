@@ -9,6 +9,7 @@
   {% endif %}
   {% if user.is_desocupado() %}
     <p>DNI: {{ user.profile().dni }}</p>
+    <a class="btn btn-info" href="{{ url('trabajos') }}">Ver Ofertas</a>
   {% endif %}
 	<a class="btn btn-danger" href="{{ url('eliminar', user.id) }}">Eliminar</a>	
 <a class="btn btn-success" href="{{ url('editar') }}">Editar</a>

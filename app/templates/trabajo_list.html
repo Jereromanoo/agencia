@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>CACA
+<div align="rigth">
+        <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
+</div>
 	{% for trabajo in object_list %}
       <h2 style="color:white"><label>CARGO:</label>{{ trabajo.cargo }}
       <label>DESCRIPCION:</label> {{ trabajo.descripcion }} 
