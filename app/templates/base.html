@@ -3,21 +3,40 @@
   <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{{ static('css/blog.css') }}">
     <meta charset="utf-8">
     <title>{% block title %}AgenciaP{% endblock %}</title>
     <link rel='stylesheet' href="{{ static('css/style.css') }}">
+    <style type="text/css">
+      .btn{
+        margin-top: 10px ;
+        margin-right: 10px ;
+      }
+
+
+    </style>
   </head>
  <body background="/static/images/pattern.jpg" >
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-right">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: -10px;height: 40px;"><img src="/static/images/logo1.png" width="80" height="80" align="left"></a>
+          <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: -15px;height: 40px;"><img src="/static/images/logo1.png" width="50" height="50" align="left"></a>
         </div>
           {% if user.is_authenticated() %}
            <div class="nav navbar-nav navbar-right">
-                 <a class="btn btn-default" href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"><strong>LOGOUT</strong></span></a>  
+              <div class="dropdown">
+                <span class="glyphicon glyphicon-align-justify"></span>
+                  <div class="dropdown-content w3-bar-block w3-border">
+                    <a href="{{ url('perfil')}}" class="w3-bar-item w3-button">
+                      <span class="glyphicon glyphicon-user">Perfil</a>
+                    <a href="{{ url('logout') }}" class="w3-bar-item w3-button">
+                      <span class="glyphicon glyphicon-log-out">Logout</a>
+                  </div>
+                </div>
+              </div>
           </div>
+        </div> 
           {% endif %}
       </div>    
     </nav>     

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if user.is_empresa() %}
+    <p>CUIT: {{ user.profile().cuit }}</p>
+    <p>RAZON SOCIAL: {{ user.profile().razon_social }}</p>
+    <p>RUBRO: {{ user.profile().rubro }}</p>
+  {% endif %}
+  {% if user.is_desocupado() %}
+    <p>DNI: {{ user.profile().dni }}</p>
+    <p>NACIMIENTO: {{ user.profile().fecha_nacimiento}}</p>
+    <p>LOCALIDAD: {{ user.profile().localidad }}</p>
+    <p>EXPERIENCIA: {{ user.profile().experiencia_laboral }}</p>
+    <p>FORMACION: {{ user.profile().formacion }}</p>
+    <p>HABILIDADES: {{ user.profile().habilidades }}</p>
+    <p>TRABAJO REALIZABLE: {{user.profile().trabajo_realizable }}</p>
+  {% endif %}  
+    <a class="btn btn-danger" href="{{ url('eliminar', user.id) }}">Eliminar</a>	
+    <a class="btn btn-success" href="{{ url('editar') }}">Editar</a>
+  
+{% endblock %}

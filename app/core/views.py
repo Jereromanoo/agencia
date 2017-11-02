@@ -12,6 +12,12 @@ def home(request):
     user.refresh_from_db()
     return render(request, 'home.html', {'user': user})
 
+@login_required
+def perfil(request):
+    user = request.user
+    user.refresh_from_db()
+    return render(request, 'perfil.html', {'user': user})
+
 def registro_desocupado(request):
     # Cuando algo llega a esta vista (llamada desde una URL) puede venir por dos
     # vias distintas. Como una petición GET (Se ingresó en la barra de direccion
@@ -118,5 +124,4 @@ def registro_trabajo(request):
 class trabajos_list(ListView):
     model = Trabajo
     template_name = "trabajo_list.html"
-
 
