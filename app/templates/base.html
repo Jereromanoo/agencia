@@ -16,6 +16,23 @@
 
 
     </style>
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+  }
+}
+</script>
   </head>
  <body background="/static/images/pattern.jpg" >
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-right">
@@ -26,15 +43,16 @@
           {% if user.is_authenticated() %}
            <div class="nav navbar-nav navbar-right">
               <div class="dropdown">
-                <span class="glyphicon glyphicon-align-justify"></span>
-                  <div class="dropdown-content w3-bar-block w3-border">
-                    <a href="{{ url('perfil')}}" class="w3-bar-item w3-button">
-                      <span class="glyphicon glyphicon-user">Perfil</a>
-                    <a href="{{ url('logout') }}" class="w3-bar-item w3-button">
-                      <span class="glyphicon glyphicon-log-out">Logout</a>
-                  </div>
+                <button class="dropbtn" onclick="myFunction()"><span class="glyphicon glyphicon-align-justify"></span>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content w3-bar-block w3-border" id="myDropdown">
+                  <a href="{{ url('perfil')}}" class="w3-bar-item w3-button">
+                    <span class="glyphicon glyphicon-user">Perfil</a>
+                  <a href="{{ url('logout') }}" class="w3-bar-item w3-button">
+                    <span class="glyphicon glyphicon-log-out">Logout</a>
                 </div>
-              </div>
+              </div> 
           </div>
         </div> 
           {% endif %}
@@ -46,3 +64,4 @@
     </div>
   </body>
 </html>
+
