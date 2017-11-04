@@ -76,18 +76,21 @@ class JobForm(forms.ModelForm):
 			'descripcion',
 			'horario',
 			'profesion',
+            'ubicacion',
 		]
 		labels = {
 			'cargo': 'Cargo',
 			'descripcion' : 'Descripcion',
 			'horario' : 'Horario',
 			'profesion' : 'Profesion',
-		}
+		    'ubicacion' : 'Ubicacion',  
+        }
 		widgets = {
 			'cargo': forms.TextInput(attrs={'class':'form-control'}),
 			'descripcion': forms.TextInput(attrs={'class':'form-control'}),
 			'horario': forms.TextInput(attrs={'class':'form-control'}),
 			'profesion': forms.TextInput(attrs={'class':'form-control'}),
+            'ubicacion' : forms.TextInput(attrs={'class':'form-control'}),
 		}
     
 class ModificarDesocupado(forms.ModelForm):
@@ -103,5 +106,5 @@ class ModificarEmpresa(forms.ModelForm):
 class ModificarTrabajo(forms.ModelForm):
     class Meta:
         model = Trabajo
-        fields = ['cargo', 'descripcion', 'horario', 'profesion']
+        fields = ['cargo', 'descripcion', 'horario', 'profesion', 'ubicacion']
 

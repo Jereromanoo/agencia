@@ -4,9 +4,18 @@
 <div align="rigth">
         <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
 </div>
+<br>
+<hr />
 	{% for trabajo in object_list %}
-      <h2 style="color:white"><label>CARGO:</label>{{ trabajo.cargo }}
-      <label>DESCRIPCION:</label> {{ trabajo.descripcion }} 
-      <label>HORARIO:</label> {{ trabajo.horario }}
+      <h2 style="color:white">
+
+      <p>CARGO: {{ trabajo.cargo }}</p><br>
+      
+      <p>DESCRIPCION: {{ trabajo.descripcion }} </p><br>
+
+      <p>HORARIO: {{ trabajo.horario }} </p><br>
+
+      <p>UBICACION: {{ trabajo.ubicacion }} </p>
+    <hr />
     {% endfor %}
 {% endblock %}
