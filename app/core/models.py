@@ -67,7 +67,7 @@ def update_user_empresa(sender, instance, created, **kwargs):
     if created:
         Empresa.objects.create(user=instance)
     instance.empresa.save()
-        
+  
 # Con respecto a lo que tenían, los nombres de las clases siempre van en singular
 class Trabajo(models.Model):
     # Y los atributos siempre en snake_case
@@ -76,6 +76,8 @@ class Trabajo(models.Model):
     horario = models.CharField(max_length=20)
     profesion = models.CharField(max_length=20)
     ubicacion = models.CharField(max_length=20)    
-    
+    empresa = models.ForeignKey('core.Empresa')
+
     def __str__(self):
         return self.cargo
+
