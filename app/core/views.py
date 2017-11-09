@@ -85,9 +85,6 @@ def editar(request):
     elif user.is_empresa():
         form = ModificarEmpresa
         data = user.empresa
-    else:
-        form = ModificarTrabajo
-        data = user.trabajo
 
     if request.method == "GET":
         return get_editar_form(request, form, data)
@@ -112,14 +109,25 @@ def handle_editar_form(request,formName, data):
 
 @login_required
 def registro_trabajo(request):
-    if request.method == 'POST':
-        form = JobForm(request.POST)
-        if form.is_valid():
-            form.save()
+    if request.method == "GET":
+        return get_registro_trabajo_form(request)
+    elif request.method == 'POST':
+        return handle_registro_trabajo_form(request)
+
+def get_registro_trabajo_form(request):
+    form = JobForm()
+    return render(request, 'jobs.html', {'form': form})
+
+def handle_registro_trabajo_form(request):
+    form = JobForm(request.POST)
+    if form.is_valid():
+        job = form.save(commit=False)
+        job.empresa = request.user.empresa
+        job.save()
         return redirect('home')
     else:
-        form =JobForm()
-    return render(request, 'jobs.html', {'form':form})
+        return render(request, 'jobs.html', {'form': form})
+
 
 class trabajos_list(ListView):
     model = Trabajo

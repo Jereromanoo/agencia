@@ -59,7 +59,7 @@ class Empresa(models.Model):
 
     # Como se representa como texto, o sea, como se ve en el admin
     def __str__(self):
-        return "Empresa" + str(self.razon_social) + " de " + str(self.user.username)
+        return "Empresa" + " " + str(self.razon_social) + " de " + str(self.user.username)
 
 # Si se crea un usuario, se crea automáticamente una Empresa
 @receiver(post_save, sender=User)

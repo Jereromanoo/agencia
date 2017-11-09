@@ -67,6 +67,13 @@ class RegistroEmpresa(UserCreationForm):
         return user
 
 class JobForm(forms.ModelForm):
+
+    class Meta:
+        model = Trabajo
+        fields = ('cargo', 'descripcion', 'horario', 'profesion', 'ubicacion')
+
+"""
+class JobForm(forms.ModelForm):
     	
 	class Meta:
 		model = Trabajo
@@ -92,7 +99,8 @@ class JobForm(forms.ModelForm):
 			'profesion': forms.TextInput(attrs={'class':'form-control'}),
             'ubicacion' : forms.TextInput(attrs={'class':'form-control'}),
 		}
-    
+"""
+
 class ModificarDesocupado(forms.ModelForm):
     class Meta:
         model = Desocupado
