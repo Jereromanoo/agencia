@@ -7,15 +7,18 @@
 <br>
 <hr />
 	{% for trabajo in lista_trabajos %}
-      <h2 style="color:white">
+     <div class="row-center">
+      <h3 style="color:white">
 
-      <p>CARGO: {{ trabajo.cargo }}</p><br>
-      
-      <p>DESCRIPCION: {{ trabajo.descripcion }} </p><br>
-
-      <p>HORARIO: {{ trabajo.horario }} </p><br>
-
+      <p>CARGO: {{ trabajo.cargo }}</p>								
+		<br>
+      <p>DESCRIPCION: {{ trabajo.descripcion }} </p>
+        <br>
+      <p>HORARIO: {{ trabajo.horario }} </p>
+        <br>
       <p>UBICACION: {{ trabajo.ubicacion }} </p>
+      </h3>
+      </div>
     <hr />
     {% endfor %}
 {% endblock %}

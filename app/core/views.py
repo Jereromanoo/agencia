@@ -135,11 +135,3 @@ def listar_trabajos(request):
 def listar_todos_trabajos(request):
     lista = Trabajo.objects.all()
     return render(request, 'mis_trabajos_list.html', {'lista_trabajos': lista})
-
-class ofertas_list(ListView):
-    model = Trabajo
-    template_name = "ofertas_list.html"
-
-class mis_trabajos_list(ListView):
-    model = Trabajo
-    template_name = "mis_trabajos_list.html"
