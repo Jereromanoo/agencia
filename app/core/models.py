@@ -55,7 +55,6 @@ class Empresa(models.Model):
     cuit = models.IntegerField(default=0)
     razon_social = models.CharField(max_length=50, null=True)
     rubro = models.CharField(max_length=30, null=True)
-    # oferta_laboral = models.ForeignKey('OfertaLaboral')
 
     # Como se representa como texto, o sea, como se ve en el admin
     def __str__(self):

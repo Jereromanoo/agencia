@@ -28,7 +28,8 @@ urlpatterns = [
     url(r'^editarDesocupado', core_views.editar, name='editar'),
     url(r'^editarEmpresa', core_views.editar, name='editar'),
     url(r'^registrar/trabajo$', core_views.registro_trabajo, name='registrar.trabajo'),
-    url(r'^ofertas/$', core_views.trabajos_list.as_view(), name='trabajos'),
+    url(r'^misOfertas/$', core_views.listar_trabajos, name='me.ofertas'),
+    url(r'^ofertas/$', core_views.listar_todos_trabajos, name='ofertas'),
     # Otras
     url(r'^editarEmpresa', core_views.editar, name='editarEmpresa'),
     url(r'^editarDesocupado', core_views.editar, name='editarDesocupado'),

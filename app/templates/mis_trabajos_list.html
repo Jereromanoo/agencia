@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div align="rigth">
+        <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
+</div>
+<br>
+<hr />
+	{% for trabajo in lista_trabajos %}
+      <h2 style="color:white">
+
+      <p>CARGO: {{ trabajo.cargo }}</p><br>
+      
+      <p>DESCRIPCION: {{ trabajo.descripcion }} </p><br>
+
+      <p>HORARIO: {{ trabajo.horario }} </p><br>
+
+      <p>UBICACION: {{ trabajo.ubicacion }} </p>
+    <hr />
+    {% endfor %}
+{% endblock %}

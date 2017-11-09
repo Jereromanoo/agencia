@@ -14,6 +14,7 @@
 	
   {% if user.is_empresa() %}
   <a class="btn btn-success" href="{{ url('registrar.trabajo') }}">Registrar Trabajo</a>
+  <a class="btn btn-info" href="{{ url('me.ofertas') }}">Mis Ofertas</a>
   {% endif %}
 
 {% endblock %}
