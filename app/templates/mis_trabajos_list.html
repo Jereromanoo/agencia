@@ -2,16 +2,43 @@
 
 {% block content %}
 <div align="rigth">
-        <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
+        
 </div>
 <br>
+{% if user.is_desocupado() %}
+  <div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <section id="fof" class="clear">
+      <!-- ####################################################################################################### -->
+      <div class="hgroup">
+        <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span></h1>
+        <h2>Error ! <span>Page Not Found</span></h2>
+      </div>
+      <p>Usted no esta autorizado a visualizar esta pagina, click en el boton para redireccionar a la pagina principal</p>
+      <p><h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  </p>
+      <!-- ####################################################################################################### -->
+    </section>
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
+{% endif%}
+
+{% if user.is_empresa() %}
 <hr />
 	{% for trabajo in lista_trabajos %}
-  <a class="btn btn-success" href="{{ url('editarTrabajo', trabajo.id) }}">Editar</a>
-     <div class="row-center">
-      <h3 style="color:white">
+     <div class="row">
+     <div class="col-sm-4"> <h3 style="color:white">
 
-      <p>CARGO: {{ trabajo.cargo }}</p>								
+      <p>
+        CARGO: {{ trabajo.cargo }}
+      </p>		
 		<br>
       <p>DESCRIPCION: {{ trabajo.descripcion }} </p>
         <br>
@@ -19,7 +46,14 @@
         <br>
       <p>UBICACION: {{ trabajo.ubicacion }} </p>
       </h3>
-      </div>
+     </div>
+     <div class="col-sm-4">
+      <a class="btn btn-default" href="{{ url('editarTrabajo', trabajo.id) }}">
+         <span class="glyphicon glyphicon-pencil" style="font-size:20px"></span>
+      </a>
+     </div>
+     </div>
     <hr />
     {% endfor %}
+{% endif %}
 {% endblock %}
