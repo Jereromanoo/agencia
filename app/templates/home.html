@@ -9,7 +9,11 @@
   {% endif %}
   {% if user.is_desocupado() %}
     <p>DNI: {{ user.profile().dni }}</p>
+<<<<<<< HEAD
   {% endif %}
+=======
+     {% endif %}
+>>>>>>> a43237aff029d912cb36e46e9aad275ff133cb7a
 	
   {% if user.is_empresa() %}
   <a class="btn btn-success" href="{{ url('registrar.trabajo') }}">Registrar Trabajo</a>

@@ -5,6 +5,7 @@ from app.core.forms import RegistroDesocupado, RegistroEmpresa, ModificarEmpresa
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
 from django.contrib.auth.models import User
 from app.core.models import *
+from django.http import HttpResponseRedirect
 
 @login_required
 def home(request):
@@ -112,7 +113,7 @@ def update_trabajo(request, trabajo_id):
             form = ModificarTrabajo(instance=trabajo, data=request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('trabajo:trabajo', args=[trabajo.id])
+                return redirect('me.ofertas')
         return render(request, 'jobs.html', { 'trabajo': trabajo, 'form': form})
 
 
@@ -143,9 +144,13 @@ def handle_registro_trabajo_form(request):
         return render(request, 'jobs.html', {'form': form})
 
 def listar_trabajos(request):
+    user = request.user
+    user.refresh_from_db()
     lista = Trabajo.objects.filter(empresa = request.user.empresa)
-    return render(request, 'mis_trabajos_list.html', {'lista_trabajos': lista})
+    return render(request, 'mis_trabajos_list.html', {'lista_trabajos': lista, 'user': user})
 
 def listar_todos_trabajos(request):
+    user = request.user
+    user.refresh_from_db()
     lista = Trabajo.objects.all()
-    return render(request, 'mis_trabajos_list.html', {'lista_trabajos': lista})
+    return render(request, 'mis_trabajos_list.html', {'lista_trabajos': lista, 'user': user})
