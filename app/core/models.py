@@ -30,7 +30,7 @@ class Desocupado(models.Model):
     apellido = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField(null=True)
     localidad = models.CharField(max_length=20,null=True)
-    estado_ocupacion = models.BooleanField(default=False)
+    contratado = models.BooleanField(default=False)
     experiencia_laboral = models.TextField(null=True)
     formacion = models.TextField(null=True)
     habilidades = models.TextField(null=True)
