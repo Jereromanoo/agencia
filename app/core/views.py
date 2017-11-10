@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from app.core.forms import RegistroDesocupado, RegistroEmpresa, ModificarEmpresa, ModificarDesocupado
+from app.core.forms import RegistroDesocupado, RegistroEmpresa, ModificarEmpresa, ModificarDesocupado, ModificarTrabajo
 from app.core.forms import RegistroDesocupado, RegistroEmpresa, JobForm
 from django.contrib.auth.models import User
 from app.core.models import *
@@ -89,7 +89,7 @@ def editar(request):
     if request.method == "GET":
         return get_editar_form(request, form, data)
     elif request.method == 'POST':
-        return handle_editar_form(request, form,data)
+        return handle_editar_form(request, form, data)
 
 def get_editar_form(request,formName, data):
     form = formName(instance=data)
@@ -101,6 +101,20 @@ def handle_editar_form(request,formName, data):
         form.save()
         return redirect('home')
     return render(request, 'signup.html', {'form':form})
+
+
+def update_trabajo(request, trabajo_id):
+        trabajo = Trabajo.objects.get(id=trabajo_id)
+        if request.method != 'POST':
+            form = ModificarTrabajo(instance=trabajo)
+        else:
+            # POST data submitted; process data.
+            form = ModificarTrabajo(instance=trabajo, data=request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('trabajo:trabajo', args=[trabajo.id])
+        return render(request, 'jobs.html', { 'trabajo': trabajo, 'form': form})
+
 
 # Estas son las que ya estaban, las comento porque con el cambio alguna cosa
 # podría tener que cambiarse o adaptarse. Notece ademas el uso de login_required

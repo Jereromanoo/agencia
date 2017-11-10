@@ -33,5 +33,6 @@ urlpatterns = [
     # Otras
     url(r'^editarEmpresa', core_views.editar, name='editarEmpresa'),
     url(r'^editarDesocupado', core_views.editar, name='editarDesocupado'),
+    url(r'^trabajo/(?P<trabajo_id>[0-9]+)/editar/$', core_views.update_trabajo, name='editarTrabajo'),
     url(r'^perfil', core_views.perfil, name='perfil'),
 ]
