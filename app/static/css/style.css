@@ -3,10 +3,6 @@ h1 a label{0/admin/logout/
         font-family: 'Lobster';
     }
 
-body {
-    color: #ffffff;
-}
-
 form input,form textarea {
     color: #000;
 }
@@ -175,3 +171,25 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 #fof .hgroup h2 span{display:block; font-size:30px;}
 #fof p{margin:25px 0 0 0; padding:0; font-size:16px;}
 #fof p:first-child{margin-top:0;}
+
+.pagina-principal{
+    background-image: url("/static/images/fondo-principal.gif");
+    background-size: cover; 
+}
+
+.jumbotron{
+    width: 10cm;
+    height: 6.5cm;
+    border-radius: 100px; 
+}
+
+.p {
+    color: black;
+}
+
+.botones{
+    padding-left: 50px;
+}
+.palabrotas{
+    padding-left: 50px;
+}

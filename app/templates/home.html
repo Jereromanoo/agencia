@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2><p>Bienvenido, {{ user.get_full_name() }} !</p></h2>
-  <p>Sos un: {{ user.profile_type() }}</p>
-  <p>Algunos datos relevantes son:</p>
-  {% if user.is_empresa() %}
-    <p>CUIT: {{ user.profile().cuit }}</p>
-  {% endif %}
-  {% if user.is_desocupado() %}
-    <p>DNI: {{ user.profile().dni }}</p>
-<<<<<<< HEAD
-  {% endif %}
-=======
-     {% endif %}
->>>>>>> a43237aff029d912cb36e46e9aad275ff133cb7a
-	
+<div class="jumbotron">
+  <div class="palabrotas">
+    <h2>
+      <p>Bienvenido, {{ user.get_full_name() }} !</p>
+    </h2>
+    <p>Sos un: {{ user.profile_type() }}</p>
+    <p>Algunos datos relevantes son:</p>
+    {% if user.is_empresa() %}
+      <p>CUIT: {{ user.profile().cuit }}</p>
+    {% endif %}
+    {% if user.is_desocupado() %}
+      <p>DNI: {{ user.profile().dni }}</p>
+    {% endif %}
+  </div>
+</div>
+<div class="botones">
   {% if user.is_empresa() %}
   <a class="btn btn-success" href="{{ url('registrar.trabajo') }}">Registrar Trabajo</a>
   <a class="btn btn-info" href="{{ url('me.ofertas') }}">Mis Ofertas</a>
   {% endif %}
-
+</div>
 {% endblock %}
