@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<body class="pagina-ofertas">
 <div align="rigth">
-        
+        <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
 </div>
 <br>
 {% if user.is_desocupado() %}
@@ -31,6 +32,7 @@
 {% endif%}
 
 {% if user.is_empresa() %}
+<h1 style="color: white">Mis Ofertas</h1>
 <hr />
 	{% for trabajo in lista_trabajos %}
      <div class="row">

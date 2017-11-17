@@ -178,11 +178,25 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
     background-size: cover; 
 }
 
+.pagina-trabajo{
+    background-image: url("/static/images/fondo-principal.gif");
+    background-size: cover; 
+}
+
+.pagina-registro{
+    background-image: url("/static/images/fondo-registro.gif");
+    background-size: cover; 
+}
+
+.pagina-ofertas{
+    background-image: url("https://media.giphy.com/media/xTiTnI1mdyxsFKTFjW/giphy.gif"); 
+    background-size: cover;
+}
+
 .jumbotron{
     width: 10cm;
-    height: 6.5cm;
     border-radius: 100px; 
-    padding-top: 15px;
+    background-size: cover;
 }
 
 .p {

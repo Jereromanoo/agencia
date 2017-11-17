@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<body class="pagina-principal">
 <div align="rigth">
         <h3><b><a class="btn btn-default" href="{{ url('home') }}"><span class="glyphicon glyphicon-home"> HOME</span></a></b></h3>  
 </div>
 <br>
-<h2><p>Bienvenido, {{ user.get_full_name() }} !</p></h2>
-  {% if user.is_empresa() %}
-    <p>CUIT: {{ user.profile().cuit }}</p>
-    <p>RAZON SOCIAL: {{ user.profile().razon_social }}</p>
-    <p>RUBRO: {{ user.profile().rubro }}</p>
-  {% endif %}
-  {% if user.is_desocupado() %}
-    <p>DNI: {{ user.profile().dni }}</p>
-    <p>NACIMIENTO: {{ user.profile().fecha_nacimiento}}</p>
-    <p>LOCALIDAD: {{ user.profile().localidad }}</p>
-    <p>EXPERIENCIA: {{ user.profile().experiencia_laboral }}</p>
-    <p>FORMACION: {{ user.profile().formacion }}</p>
-    <p>HABILIDADES: {{ user.profile().habilidades }}</p>
-    <p>TRABAJO REALIZABLE: {{user.profile().trabajo_realizable }}</p>
-  {% endif %}  
+<div class="jumbotron">
+  <div class="palabrotas" >  
+    <h2><p>Bienvenido, {{ user.get_full_name() }} !</p></h2>
+      {% if user.is_empresa() %}
+        <p>CUIT: {{ user.profile().cuit }}</p>
+        <p>RAZON SOCIAL: {{ user.profile().razon_social }}</p>
+        <p>RUBRO: {{ user.profile().rubro }}</p>
+      {% endif %}
+      {% if user.is_desocupado() %}
+        <p>DNI: {{ user.profile().dni }}</p>
+        <p>NACIMIENTO: {{ user.profile().fecha_nacimiento}}</p>
+        <p>LOCALIDAD: {{ user.profile().localidad }}</p>
+        <p>EXPERIENCIA: {{ user.profile().experiencia_laboral }}</p>
+        <p>FORMACION: {{ user.profile().formacion }}</p>
+        <p>HABILIDADES: {{ user.profile().habilidades }}</p>
+        <p>TRABAJO REALIZABLE: {{user.profile().trabajo_realizable }}</p>
+      {% endif %}
+  </div>    
+<div class="botones">
     <a class="btn btn-danger" href="{{ url('eliminar', user.id) }}">Eliminar</a>	
     <a class="btn btn-success" href="{{ url('editar') }}">Editar</a>
-  
+</div>
+</div>
 {% endblock %}
